@@ -101,16 +101,15 @@
     var name = prompt("Who are you shopping for today?", "Type 'Men' or 'Women'");
 
     if (name == null || name == "" || name != "Men" || name != "Women") {
-        document.getElementById("msg").innerHTML = "You did not entert anything. Please enter your name again";
+        document.getElementById("msg").innerHTML = "You did not enter anything. Please enter your name again";
     }
     else
     {
-        document.getElementById("msg").innerHTML = "You entered: " + name;
         if (name == "Men" || name == "men") {
-            window.location.href = "https://jesuisdolfin.github.io/assignment1/mens.html"
+            window.location.href = "https://jesuisdolfin.github.io/assignment2/mens.html"
         }
         else if (name == "Women" || name == "women") {
-            window.location.href = "https://jesuisdolfin.github.io/assignment1/womens.html"
+            window.location.href = "https://jesuisdolfin.github.io/assignment2/womens.html"
         }
         
     }
