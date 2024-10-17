@@ -101,7 +101,7 @@ function showAbout() {
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                     <div class="my-3 py-3 border border-warning rounded" style="color:white">
                         <h2 class="display-5">Our Sponsors</h2>
-                        <p class="lead">American Cardinal is thankful to all our sponsors from <strong class="text-warning">COM S 3190</strong> and extends special acknowledgments to the inspiration of our designs, <strong class="text-warning">Dr. Abraham N. Aldaco-Gastelum</strong>.</p>
+                        <p class="lead">American Cardinal is thankful to all our sponsors from <strong class="text-warning">SE/ComS3190 Construction of User Interfaces, Fall 2024</strong> and extends special acknowledgments to the inspiration of our designs, <strong class="text-warning">Dr. Abraham N. Aldaco-Gastelum</strong>.</p>
                     </div>
                 </div>
             </div>
