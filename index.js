@@ -5,29 +5,24 @@ window.onload = function() {
 const loadCategories = (myCategories, option) => {
     let arrayCategories = myCategories.categories;
     let sortedCategories = [];
-
     if (option === "m") {
         sortedCategories = arrayCategories.filter(categories => categories.gender.includes("m"));
     } else if (option === "w") {
         sortedCategories = arrayCategories.filter(categories => categories.gender.includes("w"));
     }
-
     let catalog = document.getElementById("col");
     catalog.classList.add("border", "rounded");
     catalog.style.backgroundColor = "hwb(223 7% 64%)";
     catalog.style.display = "flex";
     catalog.style.flexWrap = "wrap";
     catalog.innerHTML = "";
-
     sortedCategories.forEach(category => {
       let article = category.article;
       let description = category.description;
       let image = category.image1;
- 
       let showCategories = document.createElement("div");
       showCategories.style.flex = "1 1 20%";
       showCategories.style.margin = "0px";
-
       showCategories.innerHTML = `
             <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -38,7 +33,6 @@ const loadCategories = (myCategories, option) => {
                     </div>
                 </div>
             </div>`;
-
         catalog.appendChild(showCategories);
     });
 };
@@ -46,11 +40,11 @@ const loadCategories = (myCategories, option) => {
 function showMens() {
     let header = document.getElementById("header");
     header.innerHTML = `
-    <div class="row">
-        <div class="col text-center mx-3">
-            <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Men's Clothing</strong></h1>
-        </div>
-    </div>`
+        <div class="row">
+            <div class="col text-center mx-3">
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Men's Clothing</strong></h1>
+            </div>
+        </div>`
     fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "m"))
@@ -60,11 +54,11 @@ function showMens() {
 function showWomens() {
     let header = document.getElementById("header");
     header.innerHTML = `
-    <div class="row">
-        <div class="col text-center mx-3">
-            <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Women's Clothing</strong></h1>
-        </div>
-    </div>`
+        <div class="row">
+            <div class="col text-center mx-3">
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Women's Clothing</strong></h1>
+            </div>
+        </div>`
     fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "w"))
@@ -77,11 +71,11 @@ function showAbout() {
     let formattedDate = today.toLocaleDateString('en-US', options);
     let header = document.getElementById("header");
     header.innerHTML = `        
-    <div class="row">
-        <div class="col text-center mx-3">
-            <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Meet Today's Team - ${formattedDate}</strong></h1>
-        </div>
-    </div>`
+        <div class="row">
+            <div class="col text-center mx-3">
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Meet Today's Team - ${formattedDate}</strong></h1>
+            </div>
+        </div>`
     let about = document.getElementById("col");
     about.innerHTML = `
         <div class="border rounded" style="background-color: hwb(223 7% 64%);">
