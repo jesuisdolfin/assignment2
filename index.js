@@ -2,8 +2,8 @@ window.onload = function() {
     showAbout();
 }
 
-function loadCategories(myCategories, option) {
-    let arrayCategories = myCategories.categories
+const loadCategories = (myCategories, option) => {
+    let arrayCategories = myCategories.categories;
     let sortedCategories = [];
 
     if (option === "m") {
@@ -17,7 +17,6 @@ function loadCategories(myCategories, option) {
     catalog.style.backgroundColor = "hwb(223 7% 64%)";
     catalog.style.display = "flex";
     catalog.style.flexWrap = "wrap";
-    catalog.style.justifyContent = "space-around";
     catalog.innerHTML = "";
 
     sortedCategories.forEach(category => {
@@ -34,15 +33,15 @@ function loadCategories(myCategories, option) {
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                     <div class="my-3 py-3" style="color:white">
                         <h2 class="display-5">${article}</h2>
+                        <img src="${image}" class="border border-warning rounded" alt="${article}" height="300px" width="200px">
                         <p class="lead">${description}</p>
                     </div>
-                    <img src="${image}" class="border border-warning rounded" alt="${article}" height="300px" width="200px">
                 </div>
-            </div>`
+            </div>`;
 
         catalog.appendChild(showCategories);
     });
-}
+};
 
 function showMens() {
     let header = document.getElementById("header");
