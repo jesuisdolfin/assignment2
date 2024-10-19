@@ -111,7 +111,7 @@ main {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.collapsible {
+.navBtn {
   background-color: hwb(223 7% 64%);
   outline: white;
   border-color: white;
@@ -121,7 +121,7 @@ main {
   color: white;
 }
 
-.active, .collapsible:hover {
+.active, .navBtn:hover {
   background-color: white;
   color: hwb(223 7% 64%)
 }
@@ -162,7 +162,7 @@ header ul li {
   list-style: none;
   transition: 0.6s;
   color: #fff;
-  /* padding: 10px */
+  padding: 10px;
 }
 
 header ul li a {
