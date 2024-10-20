@@ -1,0 +1,68 @@
+{
+    "categories": [
+      {
+        "article": "Pants",
+        "description": "Our selection of men's pants are sure to fit your everyday needs from lounging at home to looking sharp in the office.",
+        "image1": "images/mens_pants.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"m"
+      },
+      {
+        "article": "Watches",
+        "description": "Finish off that great look and stay on top of your busy schedule with one of our designer watches.",
+        "image1": "images/mens_watch.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"m"
+      },
+      {
+        "article": "Shirts",
+        "description": "Button up in one of our polyester blended shirts, or go for a more relaxed fit in our cotton tees.",
+        "image1": "images/mens_shirts.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"m"
+      },
+      {
+        "article": "Shoes",
+        "description": "There's no better way to start you day than to step into our one of a kind shoes with top-notch design on comfort and style.",
+        "image1": "images/mens_shoes.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"m"
+      },
+      {
+        "article": "Pants",
+        "description": "Start your projects with the right pants! Whether you're looking for jeans, skirts, or khakis- we have it all.",
+        "image1": "images/womens_pants.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"w"
+      },
+      {
+        "article": "Purses",
+        "description": "Strut down that street knowing you're looking your best with a complete look finished with our one of kind designer hand bags.",
+        "image1": "images/womens_purse.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"w"
+      },
+      {
+        "article": "Shirts",
+        "description": "Whatever your color, whatever your style, we have the tops in stock to get your look started, from polka dots to lace.",
+        "image1": "images/womens_shirts.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"w"
+      },
+      {
+        "article": "Shoes",
+        "description": "We know you have a lot of roles to fill, and that's why our selection of women's shoes are designed to take you wherever, whenever.",
+        "image1": "images/womens_shoes.jpg",
+        "image2": "./",
+        "image3": "./",
+        "gender":"w"
+      }
+    ]
+  }

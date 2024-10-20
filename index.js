@@ -1,78 +1,83 @@
-function loadCategories(myCategories, option) {
-    // Make the Object to Array
-    let arrayCategories = myCategories.categories
+window.onload = function() {
+    showAbout();
+}
 
-    // sort Array
+const loadCategories = (myCategories, option) => {
+    let arrayCategories = myCategories.categories;
     let sortedCategories = [];
     if (option === "m") {
         sortedCategories = arrayCategories.filter(categories => categories.gender.includes("m"));
-    } 
-    else if (option === "w") {
+    } else if (option === "w") {
         sortedCategories = arrayCategories.filter(categories => categories.gender.includes("w"));
     }
-  
-    // find the id col for Bootstrap Card
-    let CardMovie = document.getElementById("col");
-  
-    // Clear previous movie data
-    CardMovie.innerHTML = ""; // This will clear the previous movie data and image
-  
+    let catalog = document.getElementById("col");
+    catalog.classList.add("border", "rounded");
+    catalog.style.backgroundColor = "hwb(223 7% 64%)";
+    catalog.style.display = "flex";
+    catalog.style.flexWrap = "wrap";
+    catalog.innerHTML = "";
     sortedCategories.forEach(category => {
       let article = category.article;
       let description = category.description;
       let image = category.image1;
- 
-      let AddCardMovie = document.createElement("div");
-      AddCardMovie.classList.add("border", "rounded");
-      AddCardMovie.style.backgroundColor = "hwb(223 7% 64%)";
-
-        AddCardMovie.innerHTML = `
+      let showCategories = document.createElement("div");
+      showCategories.style.flex = "1 1 20%";
+      showCategories.style.margin = "0px";
+      showCategories.innerHTML = `
             <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                     <div class="my-3 py-3" style="color:white">
                         <h2 class="display-5">${article}</h2>
+                        <img src="${image}" class="border border-warning rounded" alt="${article}" height="300px" width="200px">
                         <p class="lead">${description}</p>
                     </div>
-                    <img src="${image}" class="border border-warning rounded" alt="${article}" height="300px">
                 </div>
-            </div>`
-
-        CardMovie.appendChild(AddCardMovie);
-    }); // end of for
-}
+            </div>`;
+        catalog.appendChild(showCategories);
+    });
+};
 
 function showMens() {
-    // <div class="row">
-    //     <div class="col text-center mx-3">
-    //         <h1 class="display-7 mt-md-7 p-md-3" style="font-family:'Verdana'"><strong>Men's Clothing</strong></h1>
-    //     </div>
-    // </div>
-    fetch("./category.json")
+    let header = document.getElementById("header");
+    header.innerHTML = `
+        <div class="row">
+            <div class="col text-center mx-3">
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Men's Clothing</strong></h1>
+            </div>
+        </div>`
+    fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "m"))
       .catch((err) => console.log("Error :" + err));
 }
   
 function showWomens() {
-    // <div class="row">
-    //     <div class="col text-center mx-3">
-    //         <h1 class="display-7 mt-md-7 p-md-3" style="font-family:'Verdana'"><strong>Women's Clothing</strong></h1>
-    //     </div>
-    // </div>
-    fetch("./category.json")
+    let header = document.getElementById("header");
+    header.innerHTML = `
+        <div class="row">
+            <div class="col text-center mx-3">
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Women's Clothing</strong></h1>
+            </div>
+        </div>`
+    fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "w"))
       .catch((err) => console.log("Error :" + err));
 }
 
 function showAbout() {
-    let CardMovie = document.getElementById("col");
-    CardMovie.innerHTML = `
+    let today = new Date();
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    let formattedDate = today.toLocaleDateString('en-US', options);
+    let header = document.getElementById("header");
+    header.innerHTML = `        
         <div class="row">
             <div class="col text-center mx-3">
-                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Meet Today's Team - September 18th, 2024</strong></h1>
+                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Meet Today's Team - ${formattedDate}</strong></h1>
             </div>
-        </div>
+        </div>`
+    let about = document.getElementById("col");
+    about.innerHTML = `
         <div class="border rounded" style="background-color: hwb(223 7% 64%);">
             <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -90,12 +95,9 @@ function showAbout() {
                 <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                     <div class="my-3 py-3 border border-warning rounded" style="color:white">
                         <h2 class="display-5">Our Sponsors</h2>
-                        <p class="lead">American Cardinal is thankful to all our sponsors from <strong class="text-warning">COM S 3190</strong> and extends special acknowledgments to the inspiration of our designs, <strong class="text-warning">Dr. Abraham N. Aldaco-Gastelum</strong>.</p>
+                        <p class="lead">American Cardinal is thankful to all our sponsors from <strong class="text-warning">SE/ComS3190 Construction of User Interfaces, Fall 2024</strong> and extends special acknowledgments to the inspiration of our designs, <strong class="text-warning">Dr. Abraham N. Aldaco-Gastelum</strong>.</p>
                     </div>
                 </div>
             </div>
         </div>`;
 }
-
-
-  
