@@ -126,21 +126,58 @@
 
 
     <header>
-      <nav>
       <ul>
-          <li><a href="index.html";>About</a></li>
-          <li><a href="mens.html";>Mens</a></li>
-          <li><a href="womens.html";>Womens</a></li>
+        <li><a href="index.html" ><button type="button" class="navBtn">About</button></a></li>
+        <li><a href="mens.html" ><button type="button" class="navBtn">Men</button></a></li>
+        <li><a href="womens.html" ><button type="button" class="navBtn">Women</button></a></li>
       </ul>
-      </nav>
+      <ul>
+        <li style="margin-left: auto"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16" >
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+        </svg>
+        <li>
+          <div class="container">
+            <button type="button" class="navBtn">Login</button>
+              <div class="content">
+                <form class="form" id="login">
+                  <div class="formInputGroup">
+                    <input type="text" class="formInput" autofocus placeholder="Username">
+                  </div>
+                  <div class="formInputGroup">
+                    <input type="password" class="formInput" placeholder="Password">
+                  </div>
+                  <button class="formButton" type="submit">Continue</button>
+                  <p class="formText">
+                    <button type="button" id="linkCreateAccount">Create an account</button>
+                  </p>
+              </form>
+              </div>
+          </div>
+        </li>
+      </ul>
     </header>
+    <script>
+    var collBtn = document.getElementsByClassName("navBtn");
+    var i;
+    for (i = 0; i < collBtn.length; i++) {
+      collBtn[i].addEventListener("click", 
+      function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "list-item") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "list-item";
+        }
+      });
+    }
+    </script>
 
 <main>
-  <div class="position-relative overflow-hidden p-md-3 m-md-3 text-center bg-body-tertiary border border-dark rounded">
+  <div class="bg"></div>
+
+  <div class="position-relative overflow-hidden p-md-3 m-md-3 text-center bg-body-tertiary">
     <div class="row justify-content-center">
-      <div class="col-md-auto">
-        <img src="images\logo.png" alt="logo" width="250px" style="opacity:0.5;filter:alpha(opacity=50); margin:auto"/>
-      </div>
       <div class="col-md-auto">
         <h1 class="display-3 fw-bold mx-auto">American Cardinal</h1>
         <h3 class="fw-normal text-muted mx-0" style="margin:0px" style="font-family:'Verdana'">Top-Notch design, comfort, and style</h3>
@@ -190,11 +227,10 @@
   </div>
   
 
+  <footer>
+    Follow us on instagram to see the latest products & styling tips: <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  </footer>
 </main>
-
-<footer>
-  <p>Follow us on instagram to see the latest products & styling tips: <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></p>
-</footer>
   
     
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
