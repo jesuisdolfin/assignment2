@@ -16,23 +16,50 @@ const loadCategories = (myCategories, option) => {
     catalog.style.display = "flex";
     catalog.style.flexWrap = "wrap";
     catalog.innerHTML = "";
+
     sortedCategories.forEach(category => {
+      let currentImageIndex = 0;
+      let images = [category.image1, category.image2, category.image3];
+      let captions = [category.img1cap, category.img2cap, category.img3cap];
+
       let article = category.article;
       let description = category.description;
-      let image = category.image1;
+
       let showCategories = document.createElement("div");
       showCategories.style.flex = "1 1 20%";
       showCategories.style.margin = "0px";
+        
       showCategories.innerHTML = `
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 py-3" style="color:white">
-                        <h2 class="display-5">${article}</h2>
-                        <img src="${image}" class="border border-warning rounded" alt="${article}" height="300px" width="200px">
-                        <p class="lead">${description}</p>
-                    </div>
-                </div>
-            </div>`;
+          <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+              <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                  <div class="my-3 py-3" style="color:white">
+                      <h2 class="display-5">${article}</h2>
+                      <button class="prev-btn">←</button>
+                      <img src="${images[currentImageIndex]}" class="border border-warning rounded" alt="${article}" height="300px" width="200px">
+                      <button class="next-btn">→</button>
+                      <p class="lead">${description}</p>
+                      <p class="caption">${captions[currentImageIndex]}</p>
+                  </div>
+              </div>
+          </div>`;
+        
+        let imgElement = showCategories.querySelector("img");
+        let captionElement = showCategories.querySelector(".caption");
+        let prevBtn = showCategories.querySelector(".prev-btn");
+        let nextBtn = showCategories.querySelector(".next-btn");
+        
+        prevBtn.addEventListener("click", () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            imgElement.src = images[currentImageIndex];
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        
+        nextBtn.addEventListener("click", () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            imgElement.src = images[currentImageIndex];
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        
         catalog.appendChild(showCategories);
     });
 };
