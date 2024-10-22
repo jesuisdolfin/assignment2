@@ -39,6 +39,7 @@ const loadCategories = (myCategories, option) => {
                       <button class="next-btn">→</button>
                       <p class="lead">${description}</p>
                       <p class="caption">${captions[currentImageIndex]}</p>
+                      <button type="button" onclick="addToCart()">Add To Cart</button>
                   </div>
               </div>
           </div>`;
@@ -64,32 +65,162 @@ const loadCategories = (myCategories, option) => {
     });
 };
 
+
+const items = document.getElementById('items');
+function showCart() {
+    const items = document.getElementById('items');
+    console.log("CLICKED CART");
+    if (document.getElementById('items').hidden == true) {
+        document.getElementById('items').hidden=false;
+    }
+    else {
+        document.getElementById('items').hidden = true;
+    }
+    
+}
+
+function addToCart() {
+    fetch('./data.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        const items = document.getElementById('items');
+        const newItem = document.createElement('li');
+        newItem.textContent = "New Item: " + data.captionElement;
+        items.appendChild(newItem);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
+
 function showMens() {
     let header = document.getElementById("header");
     header.innerHTML = `
-        <div class="row">
-            <div class="col text-center mx-3">
-                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Men's Clothing</strong></h1>
-            </div>
-        </div>`
+        <ul>
+        <li><a href="#" ><button type="button" onclick="showAbout()" class="navBtn">About</button></a></li>
+        <li><a href="#" ><button type="button"  onclick="showMens()" class="navBtn">Men</button></a></li>
+        <li><a href="#" ><button type="button"  onclick="showWomens()" class="navBtn">Women</button></a></li>
+      </ul>
+      <ul>
+        <li style="margin-left: auto"> 
+        <a onclick="showCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+          </svg>
+        </a>
+        <ul id="items" hidden>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+        </li>
+        <li>
+          <div class="container" id="loginform">
+            <button type="button" class="navBtn">Login</button>
+              <div class="content">
+                <form class="form" id="login">
+                  <div class="formInputGroup">
+                    <input type="text" class="formInput" id="username" autofocus placeholder="Username">
+                  </div>
+                  <div class="formInputGroup">
+                    <input type="password" class="formInput" id="password" placeholder="Password">
+                  </div>
+                  <button class="formButton" type="button" onclick="login()">Continue</button>
+                  <p class="formText">
+                    <button type="button" id="linkCreateAccount">Create an account</button>
+                  </p>
+              </form>
+              </div>
+          </div>
+          <div id="loggedin" hidden>
+            <p id="greeting"></p>
+          </div>
+        </li>
+      </ul>`
     fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "m"))
       .catch((err) => console.log("Error :" + err));
+
+    var collBtn = document.getElementsByClassName("navBtn");
+    var i;
+    for (i = 0; i < collBtn.length; i++) {
+      collBtn[i].addEventListener("click", 
+      function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "list-item") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "list-item";
+        }
+      });
+    }
 }
   
 function showWomens() {
     let header = document.getElementById("header");
     header.innerHTML = `
-        <div class="row">
-            <div class="col text-center mx-3">
-                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Women's Clothing</strong></h1>
-            </div>
-        </div>`
+        <ul>
+        <li><a href="#" ><button type="button" onclick="showAbout()" class="navBtn">About</button></a></li>
+        <li><a href="#" ><button type="button"  onclick="showMens()" class="navBtn">Men</button></a></li>
+        <li><a href="#" ><button type="button"  onclick="showWomens()" class="navBtn">Women</button></a></li>
+      </ul>
+      <ul>
+        <li style="margin-left: auto"> 
+        <a onclick="showCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+          </svg>
+        </a>
+        <ul id="items" hidden>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+        </li>
+        <li>
+          <div class="container" id="loginform">
+            <button type="button" class="navBtn">Login</button>
+              <div class="content">
+                <form class="form" id="login">
+                  <div class="formInputGroup">
+                    <input type="text" class="formInput" id="username" autofocus placeholder="Username">
+                  </div>
+                  <div class="formInputGroup">
+                    <input type="password" class="formInput" id="password" placeholder="Password">
+                  </div>
+                  <button class="formButton" type="button" onclick="login()">Continue</button>
+                  <p class="formText">
+                    <button type="button" id="linkCreateAccount">Create an account</button>
+                  </p>
+              </form>
+              </div>
+          </div>
+          <div id="loggedin" hidden>
+            <p id="greeting"></p>
+          </div>
+        </li>
+      </ul>`
     fetch("./data.json")
       .then((response) => response.json())
       .then((myCategories) => loadCategories(myCategories, "w"))
       .catch((err) => console.log("Error :" + err));
+
+    var collBtn = document.getElementsByClassName("navBtn");
+    var i;
+    for (i = 0; i < collBtn.length; i++) {
+      collBtn[i].addEventListener("click", 
+      function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "list-item") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "list-item";
+        }
+      });
+    }
 }
 
 function showAbout() {
@@ -98,12 +229,62 @@ function showAbout() {
     let formattedDate = today.toLocaleDateString('en-US', options);
     let header = document.getElementById("header");
     header.innerHTML = `        
-        <div class="row">
-            <div class="col text-center mx-3">
-                <h1 class="display-7 mt-md-7" style="font-family:'Verdana'"><strong>Meet Today's Team - ${formattedDate}</strong></h1>
+        <ul>
+          <li><a href="#"><button type="button"  onclick="showAbout()" class="navBtn">About</button></a></li>
+          <li><a href="#" ><button type="button"  onclick="showMens()" class="navBtn">Men</button></a></li>
+          <li><a href="#" ><button type="button"  onclick="showWomens()" class="navBtn">Women</button></a></li>
+        </ul>
+        <ul>
+          <li style="margin-left: auto"> 
+        <a onclick="showCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+          </svg>
+        </a>
+        <ul id="items" hidden>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+        </li>
+          </a>
+            <div class="container" id="loginform">
+              <button type="button" class="navBtn">Login</button>
+                <div class="content">
+                  <form class="form" id="login">
+                    <div class="formInputGroup">
+                      <input type="text" class="formInput" id="username" autofocus placeholder="Username">
+                    </div>
+                    <div class="formInputGroup">
+                      <input type="password" class="formInput" id="password" placeholder="Password">
+                    </div>
+                    <button class="formButton" type="button" onclick="login()">Continue</button>
+                    <p class="formText">
+                      <button type="button" id="linkCreateAccount">Create an account</button>
+                    </p>
+                </form>
+                </div>
             </div>
-        </div>`
+            <div id="loggedin" hidden>
+              <p id="greeting"></p>
+            </div>
+          </li>
+        </ul>`
     let about = document.getElementById("col");
+
+    var collBtn = document.getElementsByClassName("navBtn");
+    var i;
+    for (i = 0; i < collBtn.length; i++) {
+      collBtn[i].addEventListener("click", 
+      function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "list-item") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "list-item";
+        }
+      });
+    }
     about.innerHTML = `
         <div class="border rounded" style="background-color: hwb(223 7% 64%);">
             <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">

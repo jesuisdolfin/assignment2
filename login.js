@@ -1,27 +1,21 @@
-function fetchUser() {
-    document.getElementById("loginuser").innerHTML = `Authenticating...`;
-    return new Promise((resolve, reject) => {
-    fetch("C:\Users\charl\COMS3190\activity12\cpd_Activity12_login.json")
-    .then(() => {return Response.json})
-    .then(() => {resolve(data)})
-    .catch((error) => {console.log(error)});
-    });
-    }
-    function login(users, userInput, passwordInput) {
-        if (users.user === userInput && users.password === passwordInput) {
-            document.getElementById("loginuser").innerHTML = "user and password correct";
+function login() {
+    fetch('./login.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        if ((document.getElementById("username").value == data.username) 
+            && (document.getElementById("password").value == data.password)) {
+                document.getElementById('loginform').hidden=true;
+                document.getElementById('loggedin').hidden=false;
+                document.getElementById('loggedin').textContent = "Welcome back \n" + data.username;
         }
         else {
-            document.getElementById("loginuser").innerHTML = "incorrect username and password";
+            alert("Incorrect Username and/or Password")
         }
-    }
-    async function useAdmin(userInput, passwordInput) {
-        let users = await(fetchUser());
-        login(users, userInput, passwordInput);
-    }
-    document.getElementById("loginButton").addEventListener("click", (event) => {
-    event.preventDefault();
-    const userInput = document.getElementById("userInput").value;
-    const passwordInput = document.getElementById("passwordInput").value;
-    useAdmin(userInput, passwordInput);
+        
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
     });
+}
