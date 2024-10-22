@@ -39,7 +39,7 @@ const loadCategories = (myCategories, option) => {
                       <button class="next-btn">→</button>
                       <p class="lead">${description}</p>
                       <p class="caption">${captions[currentImageIndex]}</p>
-                      <button type="button" onclick="addToCart()">Add To Cart</button>
+                      <button class="add-btn" type="button">Add To Cart</button>
                   </div>
               </div>
           </div>`;
@@ -48,6 +48,7 @@ const loadCategories = (myCategories, option) => {
         let captionElement = showCategories.querySelector(".caption");
         let prevBtn = showCategories.querySelector(".prev-btn");
         let nextBtn = showCategories.querySelector(".next-btn");
+        let addBtn = showCategories.querySelector(".add-btn");
         
         prevBtn.addEventListener("click", () => {
             currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
@@ -60,6 +61,13 @@ const loadCategories = (myCategories, option) => {
             imgElement.src = images[currentImageIndex];
             captionElement.textContent = captions[currentImageIndex];
         });
+
+        addBtn.addEventListener("click", () => {
+          const items = document.getElementById('items');
+          const newItem = document.createElement('li');
+          newItem.textContent = captionElement.textContent;
+          items.appendChild(newItem);
+        })
         
         catalog.appendChild(showCategories);
     });
@@ -69,7 +77,7 @@ const loadCategories = (myCategories, option) => {
 const items = document.getElementById('items');
 function showCart() {
     const items = document.getElementById('items');
-    console.log("CLICKED CART");
+    // console.log("CLICKED CART");
     if (document.getElementById('items').hidden == true) {
         document.getElementById('items').hidden=false;
     }
@@ -111,8 +119,6 @@ function showMens() {
           </svg>
         </a>
         <ul id="items" hidden>
-            <li>item 1</li>
-            <li>item 2</li>
         </ul>
         </li>
         <li>
@@ -175,8 +181,6 @@ function showWomens() {
           </svg>
         </a>
         <ul id="items" hidden>
-            <li>item 1</li>
-            <li>item 2</li>
         </ul>
         </li>
         <li>

@@ -147,6 +147,16 @@ header {
   color: white;
 }
 
+#items {
+  display: list-item;
+  list-style-type: none;
+  background-color: white;
+}
+
+#items li {
+  color: hwb(223 7% 64%);
+}
+
 header .logo {
   position: relative;
   transition: 0.6s;
