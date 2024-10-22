@@ -8,7 +8,7 @@
       "image3": "images/mens_pants3.jpg",
       "img1cap": "Chinos",
       "img2cap": "Khakis",
-      "img3cap": "Men's Shorts",
+      "img3cap": "Shorts",
       "gender":"m"
     },
     {
@@ -17,9 +17,9 @@
       "image1": "images/mens_watch.jpg",
       "image2": "images/mens_watch2.jpg",
       "image3": "images/mens_watch3.jpg",
-      "img1cap": "Light Faced",
-      "img2cap": "Dark Faced",
-      "img3cap": "Kachow Faced",
+      "img1cap": "Modern",
+      "img2cap": "Timeless",
+      "img3cap": "Fun",
       "gender":"m"
     },
     {
@@ -28,9 +28,9 @@
       "image1": "images/mens_shirts.jpg",
       "image2": "images/mens_shirts2.jpg",
       "image3": "images/mens_shirts3.jpg",
-      "img1cap": "Neutral Dress Shirts",
-      "img2cap": "Polo Shirts",
-      "img3cap": "Color Dress Shirts",
+      "img1cap": "Button Ups",
+      "img2cap": "Polos",
+      "img3cap": "Formal",
       "gender":"m"
     },
     {
@@ -39,9 +39,9 @@
       "image1": "images/mens_shoes.jpg",
       "image2": "images/mens_shoes2.jpg",
       "image3": "images/mens_shoes3.jpg",
-      "img1cap": "Dress Shoes",
-      "img2cap": "Men's Casual Shoes",
-      "img3cap": "Athletic Shoes",
+      "img1cap": "Dress",
+      "img2cap": "Flats",
+      "img3cap": "Sneakers",
       "gender":"m"
     },
     {
@@ -50,9 +50,9 @@
       "image1": "images/womens_pants.jpg",
       "image2": "images/womens_pants2.jpg",
       "image3": "images/womens_pants3.jpg",
-      "img1cap": "Dress Pants",
+      "img1cap": "Flared",
       "img2cap": "Slacks",
-      "img3cap": "Women's Shorts",
+      "img3cap": "Jean Shorts",
       "gender":"w"
     },
     {
@@ -61,9 +61,9 @@
       "image1": "images/womens_purse.jpg",
       "image2": "images/womens_purse2.jpg",
       "image3": "images/womens_purse3.jpg",
-      "img1cap": "Neutral Pattern Purse",
-      "img2cap": "Neutral Solid Purse",
-      "img3cap": "Colored Purse",
+      "img1cap": "Crossbody",
+      "img2cap": "Shoulder",
+      "img3cap": "Satchel",
       "gender":"w"
     },
     {
@@ -72,9 +72,9 @@
       "image1": "images/womens_shirts.jpg",
       "image2": "images/womens_shirts2.jpg",
       "image3": "images/womens_shirts3.jpg",
-      "img1cap": "Collared",
-      "img2cap": "Dress Shirt",
-      "img3cap": "Casual Shirt",
+      "img1cap": "Button Ups",
+      "img2cap": "Formal",
+      "img3cap": "Casual",
       "gender":"w"
     },
     {
@@ -83,9 +83,9 @@
       "image1": "images/womens_shoes.jpg",
       "image2": "images/womens_shoes2.jpg",
       "image3": "images/womens_shoes3.jpg",
-      "img1cap": "Heels",
-      "img2cap": "Patterned Shoes",
-      "img3cap": "Women's Casual Shoes",
+      "img1cap": "Heals",
+      "img2cap": "Flats",
+      "img3cap": "Sneakers",
       "gender":"w"
     }
   ]
